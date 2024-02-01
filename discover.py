@@ -1,7 +1,7 @@
 import os
 import fnmatch
 
-extensiones = ["docx"]
+extensiones = ["pptx","xlsx"]
 origen = "/"
 def encuentra_archivos():
     archivos_encontrados = []
