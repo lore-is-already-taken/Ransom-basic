@@ -1,7 +1,7 @@
 import os
 import fnmatch
 
-extensiones = ["pdf","jpg"]
+extensiones = ["docx"]
 origen = "/"
 def encuentra_archivos():
     archivos_encontrados = []
@@ -10,5 +10,4 @@ def encuentra_archivos():
             for extension in extensiones:
                 if fnmatch.fnmatch(archivo, f'*.{extension}'):
                     archivos_encontrados.append(os.path.join(ruta_actual, archivo))
-
     return archivos_encontrados
