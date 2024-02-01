@@ -1,10 +1,12 @@
 from cryptography.fernet import Fernet
 import os
 
+ruta_inicio = os.path.expanduser("~")
+ruta = os.path.join(ruta_inicio,"key.key")
 def generate_key():
     # GENERA UN LLAVE Y LA GUARDA EN EL ARCHIVO KEY.KEY
     key = Fernet.generate_key()
-    with open('~/key.key', 'wb') as filekey:
+    with open(ruta,'wb') as filekey:
         filekey.write(key)
     return key
 def encrypt(key,f):
