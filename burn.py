@@ -15,6 +15,7 @@ def encrypt(key,f):
 def replace_file(file):
     os.rename(file,file+'.sc2')
 
-key=generate_key()
-encrypt(key,file)
-replace_file(file)
+def main(file):
+    key=generate_key()
+    encrypt(key,file)
+    replace_file(file)
