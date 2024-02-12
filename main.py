@@ -3,6 +3,7 @@ import burn
 import seal
 
 archivos=discover.encuentra_archivos()
+print(archivos)
 seal.main()
 
 for item in archivos:
