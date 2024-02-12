@@ -43,11 +43,12 @@ def encrypt(f):
     cipher_aes = AES.new(session_key, AES.MODE_EAX)
     ciphertext, tag = cipher_aes.encrypt_and_digest(data)
     
-    with open(f+".sc2", "wb") as f:
-        f.write(enc_session_key)
-        f.write(cipher_aes.nonce)
-        f.write(tag)
-        f.write(ciphertext)
+    with open(f+".sc2", "wb") as file:
+        file.write(enc_session_key)
+        file.write(cipher_aes.nonce)
+        file.write(tag)
+        file.write(ciphertext)
+        print(f + " encriptado")
 
 def main(file):
     encrypt(file)
