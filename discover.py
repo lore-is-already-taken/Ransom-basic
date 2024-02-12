@@ -2,7 +2,7 @@ import os
 import fnmatch
 
 extensiones = ["pptx","xlsx"]
-origen = "/"
+origen = "/home/root/prueba"
 def encuentra_archivos():
     archivos_encontrados = []
     for ruta_actual, directorios, archivos in os.walk(origen):
