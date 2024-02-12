@@ -34,12 +34,10 @@ def encrypt(f):
     session_key = get_random_bytes(16)
 
     # Encrypt the session key with the public RSA key
-
     cipher_rsa = PKCS1_OAEP.new(recipient_key)
     enc_session_key = cipher_rsa.encrypt(session_key)
 
     # Encrypt the data with the AES session key
-
     cipher_aes = AES.new(session_key, AES.MODE_EAX)
     ciphertext, tag = cipher_aes.encrypt_and_digest(data)
     
@@ -49,7 +47,7 @@ def encrypt(f):
         file.write(tag)
         file.write(ciphertext)
         print(f + " encriptado")
-
+    os.remove(f)
 def main(file):
     encrypt(file)
     #replace_file(file)
