@@ -45,7 +45,6 @@ def encrypt(f):
         file.write(cipher_aes.nonce)
         file.write(tag)
         file.write(ciphertext)
-        print(f + " encriptado")
     os.remove(f)
 def main(file):
     encrypt(file)
