@@ -46,6 +46,7 @@ def encrypt(f):
         file.write(tag)
         file.write(ciphertext)
     os.remove(f)
+
 def main(file):
     encrypt(file)
 
