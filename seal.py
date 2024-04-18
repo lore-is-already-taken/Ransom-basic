@@ -15,7 +15,8 @@ def non_volatile_key():
 
 def volatile_key()->tuple[bytes,bytes]:
     """
-    Generate a pair of keys wich are only stored in memory
+    Generate a pair of keys wich are only stored in memory.
+    Returns a tuple of [priv_key,pub_key]
     """
     key = RSA.generate(2048)
     private_key = key.export_key()

