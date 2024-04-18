@@ -4,7 +4,7 @@ import seal
 
 archivos=discover.encuentra_archivos()
 print(archivos)
-seal.main()
+seal.non_volatile_key()
 
 for item in archivos:
     burn.main(item)
