@@ -3,7 +3,7 @@ import fnmatch
 
 extensiones = ["pptx","xlsx","docx"]
 origen = "/"
-def encuentra_archivos()->list[str]:
+def find_files()->list[str]:
     """
     Itereate through the system files in order to find files that have extensions of
     interest.

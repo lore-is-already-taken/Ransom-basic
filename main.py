@@ -2,7 +2,7 @@ import discover
 import burn
 import seal
 
-archivos=discover.encuentra_archivos()
+archivos=discover.find_files()
 print(archivos)
 seal.non_volatile_key()
 
