@@ -13,7 +13,7 @@ def encrypt(f:str):
         data = file.read()
 
     recipient_key = RSA.import_key(open("seal.pem").read())
-    session_key = get_random_bytes(356)
+    session_key = get_random_bytes(32)
 
     cipher_rsa = PKCS1_OAEP.new(recipient_key)
     enc_session_key = cipher_rsa.encrypt(session_key)
