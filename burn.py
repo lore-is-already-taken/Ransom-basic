@@ -31,7 +31,7 @@ def encrypt(f:str):
 
 def fast_encrypt(f:str,pub_key:bytes):
     """
-    Encrypts a file with a give public key
+    Encrypts a file with a given public key
     """
     with open(f, "rb") as file:
         data = file.read()
