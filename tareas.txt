@@ -1,6 +1,0 @@
-este programa seguirá los siguientes pasos para encryptar:
-
-- se le define una ruta donde el programa va a operar
-- se definen tipos de archivos para encriptar
-- crea claves para encrytar
-- encripta
