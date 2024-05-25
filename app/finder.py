@@ -2,15 +2,19 @@ import os
 from typing import List
 
 
-class Finder:
-    def __init__(self, route) -> None:
-        self.route = route
+def find_files_with_extension(work_dir, extensions: List[str]) -> List[str]:
+    absolute_path = os.path.abspath(work_dir)
+    files = os.listdir(absolute_path)
 
-    def find_files_with_extension(self, extensions: List[str]) -> List[str]:
-        files = os.listdir(self.route)
-        filtered_files = [
-            f"{self.route}/{file}"
-            for file in files
-            if any(file.endswith(ext) for ext in extensions)
-        ]
-        return filtered_files
+    filtered_files = []
+
+    for item in files:
+        if os.path.isdir(f"{work_dir}/{item}"):
+            filtered_files += find_files_with_extension(
+                f"{absolute_path}/{item}", extensions
+            )
+
+        elif any(item.endswith(ext) for ext in extensions):
+            filtered_files.append(f"{absolute_path}/{item}")
+
+    return filtered_files
